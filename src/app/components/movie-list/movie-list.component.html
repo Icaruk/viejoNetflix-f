@@ -1,0 +1,10 @@
+<p>movie-list works!</p>
+
+<div class="movies">
+	<div class="movie" *ngFor="let _x of movieList">
+		<a routerLink="/movie/{{_x.id}}">
+			<h2>{{_x.title}}</h2>
+			<img src="https://image.tmdb.org/t/p/w200/{{_x.poster_path}}" alt="poster">
+		</a>
+	</div>
+</div>
