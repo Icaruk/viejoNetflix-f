@@ -1,0 +1,27 @@
+
+.main {
+	height: 100vh;
+	width: 100vw;
+}
+
+.caja-registro {
+	display: flex;
+	flex-direction: column;
+	
+	margin-top: 3em;
+}
+
+.caja-registro > * {
+	width: 100%;
+}
+
+p {
+	color: red;
+	font-weight: bold;
+	text-align: center;
+}
+
+mat-card {
+    display: flex;
+    flex-flow: column;	
+}

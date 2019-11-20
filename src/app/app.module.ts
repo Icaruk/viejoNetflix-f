@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule, MatIconModule, MatButtonModule, MatCardModule } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -23,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 		LoginComponent,
 		RegisterComponent,
 		MovieListComponent,
+		HeaderComponent,
 		
 	],
 	imports: [

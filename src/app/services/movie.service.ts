@@ -14,17 +14,27 @@ export class MovieService {
 	
 	constructor(private httpClient: HttpClient) {}
 
-	getHomeMovies(limit: Number = 10): Observable<object> {
+	getHomeMovies(limit: number = 10): Observable<object> {
+		
+		
 		return this.httpClient.get(
-			`${this.apiUrl}/movie/popular/${limit}/?token=${this.token}`
+			`${this.apiUrl}/movie/popular?limit=${limit}&token=${this.token}`
 		);
-	}
-
+	};
+	
+	getMovieByTitle(title: string, limit: number = 30) {
+		return this.httpClient.get(
+			`${this.apiUrl}/movie/search?limit=${limit}&title=${title}&token=${this.token}`
+		);
+	};
+	
 	getMovieById(id: string) {
 		return this.httpClient.get(
 			`${this.apiUrl}/movie/search?id=${id}&token=${this.token}`
 		);
-	}
+	};
+	
+	
 
 	/*
 	getMoviesByCategory(category: string): Observable<object> {

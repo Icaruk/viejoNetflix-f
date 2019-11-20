@@ -1,2 +1,46 @@
-<p>register works!</p>
 
+<div class="cenY main">
+	<div class="caja-registro">
+		
+		<form (submit)="login()" #form="ngForm">
+			<mat-card>
+				
+				<mat-card-header class="cenX">
+					<mat-card-title>Register</mat-card-title>
+				</mat-card-header>
+
+				<mat-form-field>
+					<input matInput placeholder="Username">
+				</mat-form-field>
+
+				<mat-form-field>
+					<input matInput placeholder="Email">
+				</mat-form-field>
+
+				<mat-form-field>
+					<input matInput placeholder="Password" type="password">
+				</mat-form-field>
+				<mat-form-field>
+					<input matInput placeholder="Repeat password" type="password">
+				</mat-form-field>
+
+				<mat-form-field>
+					<input matInput placeholder="Phone">
+				</mat-form-field>
+
+				<mat-form-field>
+					<input matInput placeholder="Address">
+				</mat-form-field>
+
+
+
+				<button mat-raised-button color="primary">Register</button>
+
+			</mat-card>
+		</form>
+
+	</div>
+
+	<p>{{register_error}}</p>
+	
+</div>

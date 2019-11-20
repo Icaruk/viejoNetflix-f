@@ -1,15 +1,24 @@
-.cenX {
-	display: flex;
-	justify-content: center;
+
+.main {
+	height: 100vh;
+	width: 100vw;
 }
 
 .caja-login {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 20em;
+	margin-top: 3em;
 }
 
 .caja-login > * {
 	width: 100%;
+}
+
+p {
+	color: red;
+	font-weight: bold;
+	text-align: center;
+}
+
+mat-card {
+    display: flex;
+    flex-flow: column;	
 }

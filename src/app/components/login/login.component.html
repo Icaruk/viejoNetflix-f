@@ -1,30 +1,41 @@
-<p>login works!</p>
-
-
-<div class="cenX">
-
+<div class="cenY main">
 	<div class="caja-login">
+		
+		<form (submit)="login()" #form="ngForm">
+			<mat-card>
+				
+				<mat-card-header class="cenX">
+					<mat-card-title>Login</mat-card-title>
+				</mat-card-header>
+				
+				<mat-form-field>
+					<input matInput placeholder="Username" required
+						[(ngModel)]="login_body.username"
+						[ngModelOptions]="{standalone: true}"
+					>
+				</mat-form-field>
+				
+				<mat-form-field>
+					<input matInput placeholder="Password" [type]="hide ? 'text' : 'password'"
+						[(ngModel)]="login_body.password"
+						[ngModelOptions]="{standalone: true}"
+					>
+					<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+						[attr.aria-pressed]="hide">
+						<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+					</button>
+				</mat-form-field>
 
-		<mat-card>
 
-			<mat-card-header class="cenX">
-				<mat-card-title>Login</mat-card-title>
-			</mat-card-header>
+				<button mat-raised-button color="primary">Login</button>
 
-			<mat-form-field>
-				<input matInput placeholder="Username">
-			</mat-form-field>
-
-			<mat-form-field>
-				<input matInput placeholder="Password" [type]="hide ? 'text' : 'password'">
-				<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-					[attr.aria-pressed]="hide">
-					<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-				</button>
-			</mat-form-field>
-
-		</mat-card>
-
+			</mat-card>
+		</form>
+		
 	</div>
-
+	
+	<p>{{login_error}}</p>
+	
 </div>
+
+

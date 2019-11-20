@@ -7,6 +7,7 @@ import { MovieService } from "src/app/services/movie.service";
 	styleUrls: ["./movie-list.component.scss"]
 })
 export class MovieListComponent implements OnInit {
+	
 	movieList: Array<any>;
 	
 	constructor(private movieService:MovieService) {}
