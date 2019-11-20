@@ -1,10 +1,30 @@
 <p>login works!</p>
 
-<div class="example-container">
-	<mat-form-field>
-		<input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-		<!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"> -->
-		<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-		<!-- </button> -->
-	</mat-form-field>
+
+<div class="cenX">
+
+	<div class="caja-login">
+
+		<mat-card>
+
+			<mat-card-header class="cenX">
+				<mat-card-title>Login</mat-card-title>
+			</mat-card-header>
+
+			<mat-form-field>
+				<input matInput placeholder="Username">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="Password" [type]="hide ? 'text' : 'password'">
+				<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+					[attr.aria-pressed]="hide">
+					<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+				</button>
+			</mat-form-field>
+
+		</mat-card>
+
+	</div>
+
 </div>

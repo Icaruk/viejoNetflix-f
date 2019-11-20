@@ -1,0 +1,15 @@
+.cenX {
+	display: flex;
+	justify-content: center;
+}
+
+.caja-login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 20em;
+}
+
+.caja-login > * {
+	width: 100%;
+}
