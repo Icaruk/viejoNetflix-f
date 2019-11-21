@@ -30,22 +30,51 @@ export class LoginComponent {
 			
 			(res) => {
 				
-				console.log( res );
-				
-				this.userService.setSessionData({
+				// Formo OBJ con info
+				let sessionData = {
 					username: res["username"],
 					userid: res["userId"],
 					token: res["token"]
-				});
+				};
 				
-				console.log(this.userService.getSessionData() );
+				
+				// Lo guardo en local storage
+				this.userService.saveSessionData(sessionData);
+				
+				
+				// Redirect
+				this.router.navigate(["/"]);
+				
 				
 			},
 			
 			(error) => {
 				
-				console.log( error.error );
-				this.login_error = error.error.error;
+				let errorData = error.error;
+				
+				
+				// Si devuelve token, es que ya tengo un token creado (ya estaba logeado) y me guardo de nuevo la info de la sesión
+				if (errorData.token) {
+					
+					this.userService.saveSessionData({
+						username: errorData.username,
+						userId: errorData.usarId,
+						token: errorData.token
+					});
+					
+				};
+				
+				
+				// Muestro mensaje de error
+				this.login_error = errorData.error;
+				
+				
+				// Elimino mensaje de error y redirijo
+				setTimeout( () => {
+					this.login_error = "";
+					this.router.navigate(["/"]);
+				}, 2000);
+				
 				
 			}
 			

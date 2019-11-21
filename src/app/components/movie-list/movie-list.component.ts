@@ -16,7 +16,7 @@ export class MovieListComponent implements OnInit {
 		
 		this.movieService.getHomeMovies(10).subscribe(
 			res => this.movieList = res['results'],	// guardo los resultados en movieList para poder acceder desde el HTML
-			err => console.log(err)
+			err => console.log("ERROR component movie", err)
 		);
 		
 		

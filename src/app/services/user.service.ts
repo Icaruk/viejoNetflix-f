@@ -10,11 +10,12 @@ import { Observable } from 'rxjs';
 export class UserService {
 	
 	// Declaro los valores por defecto
-	private sessionData: object = {
+	/*private sessionData: object = {
 		username: "",
 		userId: "",
 		token: ""
 	};
+	*/
 	
 	
 	constructor(private httpClient: HttpClient) {}
@@ -31,14 +32,52 @@ export class UserService {
 		return this.httpClient.post("http://localhost:3000/user/login", login_body);
 	};
 	
-	getSessionData(): object {
-		return this.sessionData;
+	logout(): Observable<object> {
+		
+		let sessionData = this.getSessionData();
+		
+		if (!sessionData) {
+			console.error( "user.service.logout: No hay sessionData" );
+			return;
+		};
+		
+		
+		// Guardo el token
+		let {token} = this.getSessionData();
+		
+		console.log( "1", token );
+		
+		// Borro datos de localStorage
+		this.deleteSessionData();
+		
+		
+		console.log( "2", token );
+		console.log( `http://localhost:3000/user/logout?token=${token}`);
+		
+		
+		// Llamo
+		this.httpClient.get(`http://localhost:3000/user/logout?token=${token}`);
+		
 	};
 	
-	setSessionData(sessionData: object): void {
-		// userService.setSessionData({username: "asd", userId: "4h6fsdh43", token: "5j64523hdx2"})
+	isLoggedIn(): boolean {
+		return !!this.getSessionData();
+	};
+	
+	
+	
+	getSessionData(): any {
+		return JSON.parse (localStorage.getItem("sessionData"));
+	};
+	
+	saveSessionData(sessionData: object): void {
+		// userService.saveSessionData({username: "asd", userId: "4h6fsdh43", token: "5j64523hdx2"})
 		
-		this.sessionData = sessionData;
+		localStorage.setItem ("sessionData", JSON.stringify (sessionData));
+	};
+	
+	deleteSessionData(): void {
+		localStorage.removeItem ("sessionData");
 	};
 	
 }
