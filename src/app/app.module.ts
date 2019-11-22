@@ -11,12 +11,15 @@ import { MovieListComponent } from "./components/movie-list/movie-list.component
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule, MatIconModule, MatButtonModule, MatCardModule } from "@angular/material";
+import {
+	MatInputModule,
+	MatIconModule,
+	MatButtonModule
+} from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HeaderComponent } from './components/header/header.component';
-import { ProfileComponent } from './components/profile/profile.component';
-
-
+import { HeaderComponent } from "./components/header/header.component";
+import { ProfileComponent } from "./components/profile/profile.component";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
 	declarations: [
@@ -26,23 +29,21 @@ import { ProfileComponent } from './components/profile/profile.component';
 		RegisterComponent,
 		MovieListComponent,
 		HeaderComponent,
-		ProfileComponent,
-		
+		ProfileComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		HttpClientModule,
-		
+
 		MatFormFieldModule,
 		MatInputModule,
 		MatIconModule,
 		MatButtonModule,
 		MatCardModule,
 		FormsModule,
-		ReactiveFormsModule,
-
+		ReactiveFormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

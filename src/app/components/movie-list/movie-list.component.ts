@@ -15,8 +15,21 @@ export class MovieListComponent implements OnInit {
 	ngOnInit() {
 		
 		this.movieService.getHomeMovies(10).subscribe(
-			res => this.movieList = res['results'],	// guardo los resultados en movieList para poder acceder desde el HTML
-			err => console.log("ERROR component movie", err)
+			
+			(res) => {
+				
+				this.movieList = res['results']; // guardo los resultados en movieList para poder acceder desde el HTML
+				
+				let overview = this.movieList["overview"];
+				
+				// Iterar por el array (u obj?) movieList y cortar texto 
+				// this.movieList["overview"] = this.movieList["overview"].substring(0, 20) + "...";
+				
+			},	
+			
+			(err) => {
+				console.log("ERROR component movie", err)
+			}
 		);
 		
 		
