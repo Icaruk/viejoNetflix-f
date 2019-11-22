@@ -2,34 +2,66 @@
 <div class="cenY main">
 	<div class="caja-registro">
 		
-		<form (submit)="login()" #form="ngForm">
+		<form (submit)="register()" #form="ngForm">
 			<mat-card>
 				
 				<mat-card-header class="cenX">
 					<mat-card-title>Register</mat-card-title>
 				</mat-card-header>
-
+				
 				<mat-form-field>
-					<input matInput placeholder="Username">
+					<input matInput placeholder="Username" required
+					[(ngModel)]="register_body.username"
+					[ngModelOptions]="{standalone: true}"
+				>
 				</mat-form-field>
 
 				<mat-form-field>
-					<input matInput placeholder="Email">
+					<input matInput placeholder="Email" required
+					[(ngModel)]="register_body.email"
+					[ngModelOptions]="{standalone: true}">
 				</mat-form-field>
 
 				<mat-form-field>
-					<input matInput placeholder="Password" type="password">
+					<input matInput placeholder="Password" type="password" required
+					[(ngModel)]="register_body.password"
+					[ngModelOptions]="{standalone: true}">
 				</mat-form-field>
 				<mat-form-field>
-					<input matInput placeholder="Repeat password" type="password">
+					<input matInput placeholder="Repeat password" type="password" required
+					[(ngModel)]="register_body.password2"
+					[ngModelOptions]="{standalone: true}">
 				</mat-form-field>
 
 				<mat-form-field>
-					<input matInput placeholder="Phone">
+					<input matInput placeholder="Phone" required
+					[(ngModel)]="register_body.phone"
+					[ngModelOptions]="{standalone: true}">
 				</mat-form-field>
 
 				<mat-form-field>
-					<input matInput placeholder="Address">
+					<input matInput placeholder="Address" required
+					[(ngModel)]="register_body.address"
+					[ngModelOptions]="{standalone: true}">
+				</mat-form-field>
+				
+				
+				<mat-form-field>
+					<input matInput placeholder="Card number"
+					[(ngModel)]="register_body.cardNumber"
+					[ngModelOptions]="{standalone: true}">
+				</mat-form-field>
+				
+				<mat-form-field>
+					<input matInput placeholder="Card owner"
+					[(ngModel)]="register_body.cardOwner"
+					[ngModelOptions]="{standalone: true}">
+				</mat-form-field>
+				
+				<mat-form-field>
+					<input matInput placeholder="Card expire date"
+					[(ngModel)]="register_body.cardExpireDate"
+					[ngModelOptions]="{standalone: true}">
 				</mat-form-field>
 
 
@@ -40,7 +72,11 @@
 		</form>
 
 	</div>
-
-	<p>{{register_error}}</p>
+	
+	<p class="success">{{register_message}}</p>
+	<p class="error">{{register_error}}</p>
 	
 </div>
+
+
+{{ register_body | json }}

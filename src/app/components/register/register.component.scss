@@ -15,10 +15,15 @@
 	width: 100%;
 }
 
-p {
-	color: red;
+.error {
+	color: rgb(231, 27, 27);
 	font-weight: bold;
 	text-align: center;
+}
+.success{
+	color: rgb(28, 185, 28);
+	font-weight: bold;
+	text-align: center;	
 }
 
 mat-card {

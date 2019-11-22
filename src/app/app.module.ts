@@ -14,6 +14,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule, MatIconModule, MatButtonModule, MatCardModule } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HeaderComponent } from './components/header/header.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -25,6 +26,7 @@ import { HeaderComponent } from './components/header/header.component';
 		RegisterComponent,
 		MovieListComponent,
 		HeaderComponent,
+		ProfileComponent,
 		
 	],
 	imports: [

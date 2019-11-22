@@ -33,7 +33,7 @@ export class LoginComponent {
 				// Formo OBJ con info
 				let sessionData = {
 					username: res["username"],
-					userid: res["userId"],
+					userId: res["userId"],
 					token: res["token"]
 				};
 				

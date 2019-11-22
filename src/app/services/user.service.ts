@@ -42,8 +42,8 @@ export class UserService {
 		};
 		
 		
-		// Guardo el token
-		let {token} = this.getSessionData();
+		// Guardo el token por valor (no por referencia)
+		let {token} = sessionData;
 		
 		console.log( "1", token );
 		
@@ -60,11 +60,34 @@ export class UserService {
 		
 	};
 	
+	
+	
+	getProfile(): Observable<object> {
+		
+		let sessionData = this.getSessionData();
+		
+		if (!sessionData) {
+			console.error( "user.service.profile: No hay sessionData" );
+			return;
+		};
+		
+		
+		// Guardo el token por valor (no por referencia)
+		let {userId, token} = sessionData;
+		console.log( sessionData );
+		console.log( `http://localhost:3000/user/${userId}?token=${token}` );
+		
+		// Llamo
+		return this.httpClient.get(
+			`http://localhost:3000/user/${userId}?token=${token}`
+		);
+	};	
+	
+	
+	
 	isLoggedIn(): boolean {
 		return !!this.getSessionData();
 	};
-	
-	
 	
 	getSessionData(): any {
 		return JSON.parse (localStorage.getItem("sessionData"));

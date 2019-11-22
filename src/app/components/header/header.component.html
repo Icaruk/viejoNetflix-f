@@ -8,23 +8,25 @@
 	<div class="spacer"></div>
 
 	<input type="text" placeholder="Search" [(ngModel)]="search_var" [ngModelOptions]="{standalone: true}">
-	
-	
-	<div *ngIf="!userService.isLoggedIn()">
-		<a routerLink="/login">
-			<span>Login</span>
-		</a>
-		<a routerLink="/register">
-			<span>Register</span>
-		</a>
-	</div>
-	
-	<div *ngIf="userService.isLoggedIn()">
-		<a routerLink="/profile" routerLinkActive="active-link">
-			<span>Profile</span>
-		</a>
-		<div (click)="userService.logout()" routerLinkActive="active-link">
-			<span>Logout</span>
+
+	<div class="cajaLinksHeader">
+		<div *ngIf="!userService.isLoggedIn()">
+			<a routerLink="/login">
+				<span>Login</span>
+			</a>
+			<a routerLink="/register">
+				<span>Register</span>
+			</a>
+		</div>
+
+		<div *ngIf="userService.isLoggedIn()">
+			<a routerLink="/profile" routerLinkActive="active-link">
+				<span>Profile</span>
+			</a>
+			<div (click)="userService.logout()" routerLinkActive="active-link">
+				<span>Logout</span>
+			</div>
 		</div>
 	</div>
+
 </div>
