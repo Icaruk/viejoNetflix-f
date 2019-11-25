@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -18,7 +19,7 @@ export class UserService {
 	*/
 	
 	
-	constructor(private httpClient: HttpClient) {}
+	constructor(private httpClient: HttpClient, private router: Router) {}
 	
 	
 	register(register_body: any): Observable<object> {
@@ -32,7 +33,7 @@ export class UserService {
 		return this.httpClient.post("http://localhost:3000/user/login", login_body);
 	};
 	
-	logout(): Observable<object> {
+	logout(): void {
 		
 		let sessionData = this.getSessionData();
 		
@@ -45,18 +46,17 @@ export class UserService {
 		// Guardo el token por valor (no por referencia)
 		let {token} = sessionData;
 		
-		console.log( "1", token );
 		
 		// Borro datos de localStorage
 		this.deleteSessionData();
 		
 		
-		console.log( "2", token );
-		console.log( `http://localhost:3000/user/logout?token=${token}`);
-		
-		
 		// Llamo
-		this.httpClient.get(`http://localhost:3000/user/logout?token=${token}`);
+		this.httpClient.get(`http://localhost:3000/user/logout?token=${token}`).subscribe();
+		
+		
+		// Redirect
+		this.router.navigate(["/"]);
 		
 	};
 	
@@ -78,9 +78,7 @@ export class UserService {
 		console.log( `http://localhost:3000/user/${userId}?token=${token}` );
 		
 		// Llamo
-		return this.httpClient.get(
-			`http://localhost:3000/user/${userId}?token=${token}`
-		);
+		return this.httpClient.get(`http://localhost:3000/user/${userId}?token=${token}`);
 	};	
 	
 	

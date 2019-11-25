@@ -9,7 +9,13 @@ import { Router } from "@angular/router";
 })
 export class ProfileComponent implements OnInit {
 	
-	userData: any;
+	userData: any = {
+		username: "",
+		email: "",
+		phone: "",
+		address: "",
+		billing: {}
+	};
 	
 	constructor(private userService: UserService) {}
 	

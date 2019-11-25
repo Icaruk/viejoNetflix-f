@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HeaderComponent } from "./components/header/header.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { MatCardModule } from "@angular/material/card";
+import { MovieStripComponent } from './components/movie-strip/movie-strip.component';
 
 @NgModule({
 	declarations: [
@@ -29,7 +30,8 @@ import { MatCardModule } from "@angular/material/card";
 		RegisterComponent,
 		MovieListComponent,
 		HeaderComponent,
-		ProfileComponent
+		ProfileComponent,
+		MovieStripComponent
 	],
 	imports: [
 		BrowserModule,

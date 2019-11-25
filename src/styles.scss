@@ -7,6 +7,8 @@ html, body {
 body {
 	margin: 0;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
+	background: rgb(42, 42, 42);
+	color: white;
 }
 
 
@@ -54,4 +56,41 @@ body {
     display: flex;
     align-items: stretch;
     justify-content: center;
+}
+
+
+
+.boton {
+	background-color: rgb(49, 49, 49);
+	color: white;
+	border: none;
+	
+	text-align: center;
+	text-decoration: none;
+	
+	display: inline-block;
+	font-size: 1.1em;
+	padding: 0.5em 0.8em;
+	
+	transition-duration: 0.25s;
+	cursor: pointer;
+	
+}
+.boton:hover {
+	background-color: rgb(255, 255, 255);
+	color: rgb(29, 29, 29);
+}
+
+
+.mr-1 {
+	margin-right: 0.2em;
+}
+.mr-2 {
+	margin-right: 0.4em;
+}
+.mr-3 {
+	margin-right: 0.6em;
+}
+.mr-4 {
+	margin-right: 0.8em;
 }
