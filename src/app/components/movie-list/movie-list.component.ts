@@ -13,7 +13,7 @@ export class MovieListComponent implements OnInit {
 	constructor(private movieService:MovieService) {}
 	
 	ngOnInit() {
-		
+		/*
 		this.movieService.getHomeMovies(10).subscribe(
 			
 			(res) => {
@@ -24,7 +24,7 @@ export class MovieListComponent implements OnInit {
 				console.log("ERROR component movie", err)
 			}
 		);
-		
+		*/
 		
 	};
 }

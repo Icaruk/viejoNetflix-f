@@ -1,19 +1,48 @@
+
+* {
+	color: white;
+}
+
+.scrolling-wrapper {
+	
+	display: flex;
+	flex-direction: row;
+	
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	
+	// transform: rotate(-90deg);
+	
+	.card {
+		display: inline-block;
+		// transform: rotate(90deg);
+	}
+}
+
+
+
 .movies{
+	display: flex;
+	flex-direction: row;
+
+	overflow-x: scroll;
+	overflow-y: hidden;
+	// white-space: nowrap; // esto descuadra la .card
+	-webkit-overflow-scrolling: touch;
+	&::-webkit-scrollbar {
+		display: none;
+	}	
 	
-	display: grid;
-    grid-template-columns:  repeat(3,1fr);
-    color: black;
+	justify-content: center;
 	
-	.movie{
-        background-color: rgb(243, 243, 243);
-		
-		display: flex;
-		flex-direction: column;
-		
-		align-items: center;
-		justify-content: center;
-		
-    }
+	width: fit-content;
+	
+	
 }
 
 
@@ -21,6 +50,9 @@
 	
 	display: flex;
 	flex-direction: row;
+	
+	// align-items: center;
+	// justify-content: center;	
 	
 	width: 32em;
 	// height: fit-content;
@@ -58,7 +90,7 @@
 				padding-bottom: 1em;
 			}
 			
-		};			
+		};
 		
 		h1 {
 			text-align: center;
@@ -79,6 +111,5 @@
 	}
 
 }
-
 
 

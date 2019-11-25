@@ -18,7 +18,7 @@ export class MovieService {
 	
 	constructor(private httpClient: HttpClient) {}
 	
-	getHomeMovies(limit: number = 10): Observable<object> {
+	getMostPopularMovies(limit: number = 10): Observable<object> {
 		return this.httpClient.get(
 			`${this.apiUrl}/movie/popular?limit=${limit}&token=${this.token}`
 		);
