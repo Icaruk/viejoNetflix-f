@@ -21,6 +21,7 @@ import { HeaderComponent } from "./components/header/header.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { MatCardModule } from "@angular/material/card";
 import { HomeComponent } from './components/home/home.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -46,6 +47,7 @@ import { HomeComponent } from './components/home/home.component';
 		MatIconModule,
 		MatButtonModule,
 		MatCardModule,
+		MatSelectModule,
 		FormsModule,
 		ReactiveFormsModule
 	],

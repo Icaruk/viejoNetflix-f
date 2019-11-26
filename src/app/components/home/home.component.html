@@ -1,4 +1,5 @@
 
+<h1>Most popular</h1>
 
 <div class="movies">
 	<div class="card" *ngFor="let _x of mostPopularMovies">
@@ -20,8 +21,30 @@
 
 
 
+<mat-form-field>
+	<!-- <mat-label>Genre: {{selected}}</mat-label> -->
+	<mat-select [(value)]="selected">
+		<mat-option (click)="searchByGenre(12)" value="Aventura">Aventura</mat-option>
+		<mat-option (click)="searchByGenre(14)" value="Fantasía">Fantasía</mat-option>
+		<mat-option (click)="searchByGenre(18)" value="Drama">Drama</mat-option>
+	</mat-select>
+</mat-form-field>
+
+
+
+<!-- <div class="dropdown">
+	<button class="dropbtn boton mr-2" id="botonDropdown">Genre: ?</button>
+	
+	<div id="dropdown" class="dropdown-content">
+		<a (click)="searchByGenre(12)">Aventura</a>
+		<a (click)="searchByGenre(14)">Fantasía</a>
+		<a (click)="searchByGenre(18)">Drama</a>
+	</div>
+	
+</div> -->
+
 <div class="movies">
-	<div class="card" *ngFor="let _x of mostPopularMovies">
+	<div class="card" *ngFor="let _x of genreMovies">
 
 		<img src="https://image.tmdb.org/t/p/w200/{{_x.poster_path}}" alt="poster">
 
