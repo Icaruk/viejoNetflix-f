@@ -55,6 +55,7 @@ export class MovieService {
 	idToGenre (id: any, returnGenre = true): any {
 		// idToGenre(12); 					// "Aventura"
 		// idToGenre("Comedia", false); 	// 35
+		// idToGenre("getObj")				// Devuelve el objeto "traductor"
 		
 		const traductor = {
 			
@@ -78,6 +79,12 @@ export class MovieService {
 			10770: "Película de TV",
 			10752: "Bélica"
 			
+		};
+		
+		
+		
+		if (id === "getObj") {
+			return traductor;
 		};
 		
 		

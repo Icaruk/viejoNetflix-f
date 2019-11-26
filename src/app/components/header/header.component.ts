@@ -40,6 +40,10 @@ export class HeaderComponent implements OnInit {
 			
 		};
 		
+		if (title.length === 0) {
+			this.router.navigate(["/"]);
+		};
+		
 		
 		
 	}

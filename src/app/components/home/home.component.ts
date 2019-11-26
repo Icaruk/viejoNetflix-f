@@ -11,31 +11,34 @@ export class HomeComponent implements OnInit {
 	mostPopularMovies: Array<any>;
 	genreMovies: Array<any>;
 	
+	generos: Array<any> = []; // lo relleno abajo
+	selected: any; // aquí se pondrá idGenero
+	
+	
 	
 	constructor(private movieService: MovieService) {}
 	
 	
-	searchByGenre(idGenre: number) {
+	searchByGenre(idGenre) {
 		
 		// Convierto el id a género y lo pongo en el botón
-		let strGenre = this.movieService.idToGenre(idGenre, true);
+		// let strGenre = this.movieService.idToGenre(idGenre, true);
 		// document.getElementById("botonDropdown").innerHTML = `Genre: ${strGenre}`;
+		
 		
 		// Espero respuesta
 		this.movieService.getMoviesByGenre(idGenre).subscribe(
-			(res) => {
+			res => {
 				this.genreMovies = res["results"]; // guardo los resultados para poder acceder desde el HTML
 			},
-			(err) => {
-				console.log( err );
+			err => {
+				console.log(err);
 			}
 		);
-	};
-	
-	
+		
+	}
 	
 	ngOnInit() {
-		
 		/*
 		let ele = document.querySelector(".scrolling-wrapper");
 		
@@ -45,46 +48,31 @@ export class HomeComponent implements OnInit {
 		});
 		*/
 		
-		this.searchByGenre(12);
+		// Saco todas las parejas de (genero + idGenero)
+		let traductor = this.movieService.idToGenre("getObj");	
 		
-		/*
-		document.getElementById("botonDropdown").addEventListener("click", (ev) => {
-			document.getElementById("dropdown").classList.toggle("show");
-		});
-		*/
 		
-		/*
-		// Ocultar dropdown al hacer click fuera
-		window.onclick = function(ev) {
-			
-			let target = ev.target as HTMLInputElement;
-			
-			
-			if (!target.matches(".dropbtn")) {
-				
-				let dropdowns = document.getElementsByClassName("dropdown-content");
-				
-				
-				for (let i = 0; i < dropdowns.length; i++) {
-					
-					let openDropdown = dropdowns[i];
-					
-					if (openDropdown.classList.contains("show")) {
-						openDropdown.classList.remove("show");
-					};
-				}
-			};
+		// Itero
+		for (let _x in traductor) {
+			this.generos.push([_x, traductor[_x] ]); // [idGenero, strGenero]
 		};
-		*/
+		
+		
+		// Selecciono una categoría por defecto
+		let randomGenre = this.generos [Math.floor (Math.random() * (this.generos.length) )];
+		
+		this.selected = randomGenre[0];
+		this.searchByGenre (randomGenre[0]);
 		
 		
 		
+		// Saco las pelis populares
 		this.movieService.getMostPopularMovies(10).subscribe(
 			res => {
 				this.mostPopularMovies = res["results"]; // guardo los resultados para poder acceder desde el HTML
 			},
-
+			
 			err => console.log(err)
 		);
-	};
+	}
 }

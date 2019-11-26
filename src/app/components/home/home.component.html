@@ -21,14 +21,19 @@
 
 
 
-<mat-form-field>
+<div class="cajaDropdown">
+	
 	<!-- <mat-label>Genre: {{selected}}</mat-label> -->
+	
 	<mat-select [(value)]="selected">
-		<mat-option (click)="searchByGenre(12)" value="Aventura">Aventura</mat-option>
-		<mat-option (click)="searchByGenre(14)" value="Fantasía">Fantasía</mat-option>
-		<mat-option (click)="searchByGenre(18)" value="Drama">Drama</mat-option>
+		<mat-option *ngFor="let _x of generos" [value]="_x[0]" (click)="searchByGenre(selected)">
+			{{_x[1]}}
+		</mat-option>
+		
 	</mat-select>
-</mat-form-field>
+	
+</div>
+
 
 
 

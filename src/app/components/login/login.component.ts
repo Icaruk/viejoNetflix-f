@@ -72,7 +72,7 @@ export class LoginComponent {
 				// Elimino mensaje de error y redirijo
 				setTimeout( () => {
 					this.login_error = "";
-					this.router.navigate(["/"]);
+					// this.router.navigate(["/"]);
 				}, 2000);
 				
 				

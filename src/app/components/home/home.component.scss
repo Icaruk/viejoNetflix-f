@@ -105,12 +105,17 @@ h1 {
 }
 
 
-
-::ng-deep .mat-select {
-    background-color: rgb(73, 73, 73); 
+.cajaDropdown {
+	margin: 0.5em 0 0 0.5em;
+	width: 14%;
 }
 
-
+::ng-deep .mat-select{
+	font-size: 1.5em;   
+}
+::ng-deep .mat-option-text{
+	font-size: 0.8em;   
+}
 
 // /* Dropdown Button */
 // .dropbtn {
