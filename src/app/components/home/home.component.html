@@ -1,24 +1,19 @@
 
 
-
 <h1>Most popular</h1>
 
 <div class="movies">
 	<div class="card" *ngFor="let _x of mostPopularMovies">
-
+		
 		<img src="https://image.tmdb.org/t/p/w200/{{_x.poster_path}}" alt="poster">
-
-
-		<div class="description">
-			<h1>{{_x.title}}</h1>
-
-			<p class="info">{{_x.genre_ids}} 2019</p>
-
-			<p>{{_x.overview}}</p>
-			
-			<app-modal [movie]="_x"></app-modal>
-			
-		</div>
+		
+		<app-modal [movie]="_x"></app-modal>
+		
+		<!-- <div class="description"> -->
+			<!-- <h1>{{_x.title}}</h1> -->
+			<!-- <p class="info">{{_x.genre_ids}} 2019</p> -->
+			<!-- <p>{{_x.overview}}</p> -->
+		<!-- </div> -->
 
 	</div>
 
@@ -41,54 +36,21 @@
 
 
 
-
-<!-- <div class="dropdown">
-	<button class="dropbtn boton mr-2" id="botonDropdown">Genre: ?</button>
-	
-	<div id="dropdown" class="dropdown-content">
-		<a (click)="searchByGenre(12)">Aventura</a>
-		<a (click)="searchByGenre(14)">Fantasía</a>
-		<a (click)="searchByGenre(18)">Drama</a>
-	</div>
-	
-</div> -->
-
 <div class="movies">
 	<div class="card" *ngFor="let _x of genreMovies">
 
 		<img src="https://image.tmdb.org/t/p/w200/{{_x.poster_path}}" alt="poster">
 
-
-		<div class="description">
+		<app-modal [movie]="_x"></app-modal>
+		
+		<!-- <div class="description">
 			<h1>{{_x.title}}</h1>
-
 			<p class="info">{{_x.genre_ids}} 2019</p>
-
 			<p>{{_x.overview}}</p>
-		</div>
+		</div> -->
 
 	</div>
 
 </div>
 
 
-
-<!-- 
-<div class="scrolling-wrapper">
-	
-	<div class="card" *ngFor="let _x of movieService.getMoviesFoundByGenre()">
-	
-			<img src="https://image.tmdb.org/t/p/w200/{{_x.poster_path}}" alt="poster">
-			
-			
-			<div class="description">
-				<h1>{{_x.title}}</h1>
-				
-				<p class="info">{{_x.genre_ids}} 2019</p>
-				
-				<p>{{_x.overview}}</p>
-			</div>
-			
-		</div>	
-	
-</div> -->

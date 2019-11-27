@@ -7,25 +7,7 @@ h1 {
 	font-size: 1.5em;
 }
 
-.scrolling-wrapper {
-	display: flex;
-	flex-direction: row;
 
-	overflow-x: scroll;
-	overflow-y: hidden;
-	white-space: nowrap;
-	-webkit-overflow-scrolling: touch;
-	&::-webkit-scrollbar {
-		display: none;
-	}
-
-	// transform: rotate(-90deg);
-
-	.card {
-		display: inline-block;
-		// transform: rotate(90deg);
-	}
-}
 
 .movies {
 	display: flex;
@@ -45,64 +27,87 @@ h1 {
 }
 
 .card {
-	display: flex;
-	flex-direction: row;
-
-	// align-items: center;
-	// justify-content: center;
-
-	width: 32em;
+	
 	// height: fit-content;
-
+	
 	color: white;
 	background: rgb(54, 54, 54);
-
+	
 	margin-left: 0.3em;
 	margin-right: 0.3em;
 	margin-top: 1em;
 	margin-bottom: 0.3em;
-
-	.description {
-		display: flex;
-		flex-direction: column;
-
-		.header {
-			display: flex;
-			flex-direction: row;
-
-			img {
-				width: 100%;
-			}
-			.genre {
-				justify-self: flex-start;
-				margin: 0;
-				padding-bottom: 1em;
-			}
-			.year {
-				justify-self: flex-end;
-				margin: 0;
-				padding-bottom: 1em;
-			}
-		}
-
-		h1 {
-			text-align: center;
-			margin: 0px;
-		}
-
-		p {
-			margin-top: 0;
-			margin-left: 0.5em;
-			margin-right: 0.5em;
-			color: rgb(192, 192, 192);
-
-			display: -webkit-box;
-			-webkit-box-orient: vertical;
-			-webkit-line-clamp: 8;
-			overflow: hidden;
-		}
+	
+	
+	img {
+		height: 300px;
 	}
+	
 }
+
+
+
+// OLD
+
+// .card {
+// 	display: flex;
+// 	flex-direction: row;
+	
+// 	// align-items: center;
+// 	// justify-content: center;
+
+// 	width: 32em;
+// 	// height: fit-content;
+
+// 	color: white;
+// 	background: rgb(54, 54, 54);
+
+// 	margin-left: 0.3em;
+// 	margin-right: 0.3em;
+// 	margin-top: 1em;
+// 	margin-bottom: 0.3em;
+
+// 	.description {
+// 		display: flex;
+// 		flex-direction: column;
+
+// 		.header {
+// 			display: flex;
+// 			flex-direction: row;
+
+// 			img {
+// 				width: 100%;
+// 			}
+// 			.genre {
+// 				justify-self: flex-start;
+// 				margin: 0;
+// 				padding-bottom: 1em;
+// 			}
+// 			.year {
+// 				justify-self: flex-end;
+// 				margin: 0;
+// 				padding-bottom: 1em;
+// 			}
+// 		}
+
+// 		h1 {
+// 			text-align: center;
+// 			margin: 0px;
+// 		}
+
+// 		p {
+// 			margin-top: 0;
+// 			margin-left: 0.5em;
+// 			margin-right: 0.5em;
+// 			color: rgb(192, 192, 192);
+			
+// 			display: -webkit-box;
+// 			-webkit-box-orient: vertical;
+// 			-webkit-line-clamp: 8;
+// 			overflow: hidden;
+// 		}
+// 	}
+// }
 
 
 .cajaDropdown {

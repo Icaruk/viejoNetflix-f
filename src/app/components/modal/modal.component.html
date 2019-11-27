@@ -1,4 +1,21 @@
-<button (click)="openDialog()">asd</button>
-<div [class]=" show ? show:hidden">
+
+<button class="boton buttonModal" (click)="openDialog()">Detail</button>
+
+<div id="fondoModal" [class]="isVisible ? 'visible' : 'hidden'"  (click)="closeDialog($event)">
+	
+	<div class="modal">
+		
+		<button class="xButton" (click)="closeDialog()">X</button>
+		
+		<h1>{{movie.title}}</h1>
+		<h2>{{movie.releaseYear}}</h2>
+		<img src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" alt="">
+		<h3>{{movie.strGenres}}</h3>
+		<p>{{movie.overview}}</p>
+		
+		<button class="botonVerde">ORDER NOW</button>
+		
+	</div>
 	
 </div>
+
