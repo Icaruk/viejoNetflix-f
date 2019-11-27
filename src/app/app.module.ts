@@ -22,6 +22,7 @@ import { ProfileComponent } from "./components/profile/profile.component";
 import { MatCardModule } from "@angular/material/card";
 import { HomeComponent } from './components/home/home.component';
 import { MatSelectModule } from '@angular/material/select';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 
@@ -34,7 +35,8 @@ import { MatSelectModule } from '@angular/material/select';
 		MovieListComponent,
 		HeaderComponent,
 		ProfileComponent,
-		HomeComponent
+		HomeComponent,
+		ModalComponent
 	],
 	imports: [
 		BrowserModule,

@@ -1,4 +1,6 @@
 
+
+
 <h1>Most popular</h1>
 
 <div class="movies">
@@ -13,6 +15,9 @@
 			<p class="info">{{_x.genre_ids}} 2019</p>
 
 			<p>{{_x.overview}}</p>
+			
+			<app-modal [movie]="_x"></app-modal>
+			
 		</div>
 
 	</div>
