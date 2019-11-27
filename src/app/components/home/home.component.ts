@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
 		
 		
 		// Saco las pelis populares
-		this.movieService.getMostPopularMovies(10).subscribe(
+		this.movieService.getMostPopularMovies().subscribe(
 			res => {
 				this.mostPopularMovies = res["results"]; // guardo los resultados para poder acceder desde el HTML
 			},

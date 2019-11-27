@@ -1,55 +1,91 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { HttpClient} from '@angular/common/http';
 import { Observable } from "rxjs";
+import { UserService } from './user.service';
 
 
 
 @Injectable({
 	providedIn: "root"
 })
-export class MovieService {
+export class MovieService implements OnInit {
 	
-	apiUrl = "http://localhost:3000";
-	token = "asd";
+	apiUrl: string = "http://localhost:3000";
 	
 	moviesFound: Array<any> = [];
 	
 	
 	
-	constructor(private httpClient: HttpClient) {}
+	constructor(private httpClient: HttpClient, private userService: UserService) {}
 	
-	getMostPopularMovies(limit: number = 10): Observable<object> {
+	ngOnInit () {
+		
+	};
+	
+	
+	getQueryOptions() {
+		
+		let limit = 10;
+		let token = this.userService.getToken();
+		
+		if (token) {
+			limit = 200;
+		};
+		
+		return {
+			limit: limit,
+			token: token
+		};
+		
+	};
+	
+	
+	
+	getMostPopularMovies(): Observable<object> {
+		
+		let options = this.getQueryOptions();
+		
 		return this.httpClient.get(
-			`${this.apiUrl}/movie/popular?limit=${limit}&token=${this.token}`
+			`${this.apiUrl}/movie/popular?limit=${options.limit}&token=${options.token}`
 		);
 	};
 	
-	getMovieByTitle(title: string, limit: number = 10) {
+	getMovieByTitle(title: string) {
+		
+		let options = this.getQueryOptions();
+		
 		return this.httpClient.get(
-			`${this.apiUrl}/movie/search?limit=${limit}&title=${title}&token=${this.token}`
+			`${this.apiUrl}/movie/search?limit=${options.limit}&title=${title}&token=${options.token}`
 		);
 	};
 	
-	getMovieById(id: string) {
+	getMoviesByGenre(idGenre: number) {
+		
+		let options = this.getQueryOptions();
+		
 		return this.httpClient.get(
-			`${this.apiUrl}/movie/search?id=${id}&token=${this.token}`
+			`${this.apiUrl}/movie/search?limit=${options.limit}&genre=${idGenre}&token=${options.token}`
 		);
 	};
-	
-	getMoviesByGenre(idGenre: number, limit: number = 10) {
-		return this.httpClient.get(
-			`${this.apiUrl}/movie/search?limit=${limit}&genre=${idGenre}&token=${this.token}`
-		);
-	}
-	
-	
-	
 	setMoviesFound(movies: Array<any>) {
 		this.moviesFound = movies;
-	}
+	};
 	getMoviesFound(): Array<any> {
 		return this.moviesFound;
-	}
+	};
+	
+	
+	
+	getMovieById(id: string) {
+		
+		let options = this.getQueryOptions();
+		
+		return this.httpClient.get(
+			`${this.apiUrl}/movie/search?id=${id}&token=${options.token}`
+		);
+	};	
+	
+
 	
 	
 	idToGenre (id: any, returnGenre = true): any {

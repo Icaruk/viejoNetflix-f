@@ -101,4 +101,18 @@ export class UserService {
 		localStorage.removeItem ("sessionData");
 	};
 	
+	
+	
+	getToken(): string {
+		
+		if (this.isLoggedIn()) {
+			return this.getSessionData().token;
+		} else {
+			return "";
+		};
+		
+	};
+	
+	
+	
 }

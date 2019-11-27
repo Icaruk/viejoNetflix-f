@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
 			this.router.navigate(["/search"]);
 			
 			
-			this.movieService.getMovieByTitle(title, 10).subscribe(
+			this.movieService.getMovieByTitle(title).subscribe(
 				(res) => {
 					this.movieService.setMoviesFound( res["results"] );
 				},
