@@ -26,7 +26,7 @@
 	<div *ngIf="userService.isLoggedIn()">
 		
 		<div class="cajaLinksHeader">
-			<button routerLink="/profile" class="boton mr-2">Profile</button>
+			<button routerLink="/profile" class="boton mr-2">{{userService.getSessionData().username}}</button>
 			<button routerLink="/orders" class="boton mr-2">Orders</button>
 			<button (click)="userService.logout()" class="boton">Logout</button>
 		</div>

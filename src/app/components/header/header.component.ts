@@ -10,13 +10,18 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 	
+	username: string;
+	
+	
 	constructor(
 		private userService: UserService,
 		private movieService: MovieService,
 		private router: Router
 	) {}
 
-	ngOnInit() {};
+	ngOnInit() {
+		this.username = this.userService.getSessionData().username;
+	};
 	
 	
 	
