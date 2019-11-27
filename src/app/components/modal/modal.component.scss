@@ -33,8 +33,8 @@ body {
 	// position: fixed; /* Stay in place */
 	z-index: 2; /* Sit on top */
 	// padding-top: 100px; /* Location of the box */
-	width: 50%; /* Full width */
-	height: 75%; /* Full height */
+	width: 40%; /* Full width */
+	height: fit-content; /* Full height */
 	overflow: auto; /* Enable scroll if needed */
 	background-color: rgb(0, 0, 0); /* Fallback color */
 	background-color: rgb(36, 36, 36); /* Black w/ opacity */
@@ -42,6 +42,56 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	
+	
+	.header {
+		width: 100%;
+		height: fit-content;
+		// background: rgb(29, 29, 29);
+		
+		h1 {
+			margin: 0.3em 0.3em;
+			color: rgb(255, 182, 24);
+			text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+		}
+	}
+	
+	.body {
+		
+		display: flex;
+		flex-direction: row;
+		
+		.image {
+			display: flex;
+			flex-direction: column;
+			
+			justify-content: center;
+			
+			max-width: 400px;
+		}
+		
+		.text {
+			display: flex;
+			flex-direction: column;
+		}
+		
+	}
+	
+	.footer {
+		width: 100%;
+		height: fit-content;
+		
+		display: flex;
+		justify-content: center;
+		
+		.botonVerde {
+			width: 100%;
+			
+			margin: 0 0 0 0;
+		}
+	}
+	
+	
 	
 	.xButton {
 		cursor: pointer;
@@ -58,27 +108,22 @@ body {
 		height: 32px;
 		width: 32px;
 		
-		background-color: rgb(253, 42, 42);
+		background-color: rgb(246, 4, 4);
 		color: black;
+	}
+	.xButton:hover {
+		background-color: rgb(255, 53, 53);
 	}
 	
 	img {
 		box-shadow: 0 4px 8px 0 rgba(139, 139, 139, 0.2), 0 6px 20px 0 rgba(139, 139, 139, 0.19);
 		margin: 0;
-		margin-bottom: 0.75em;
+		// margin-bottom: 0.75em;
 	}
 	
 	h1, h2, h3, p {
 		text-align: center;
 		margin: 0;
-	}
-	
-	h1 {
-		margin-top: 0.25em;
-		margin-bottom: 0.75em;
-		color: rgb(255, 182, 24);
-		
-		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	}
 	
 	p {
@@ -99,3 +144,5 @@ body {
 	
 	
 }
+
+

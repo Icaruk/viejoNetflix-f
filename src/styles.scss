@@ -109,13 +109,13 @@ body {
 	transition-duration: 0.25s;
 	cursor: pointer;
 	
-	transition: transform 0.3s;
+	// transition: transform 0.3s;
 	
 }
 .botonVerde:hover {
 	background-color: rgb(128, 255, 43);
 	color: rgb(0, 0, 0);
-	transform: scale(1.2, 1.2);
+	// transform: scale(1.2, 1.2);
 }
 
 
