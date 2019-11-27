@@ -3,7 +3,7 @@
 
 <div id="fondoModal" [class]="isVisible ? 'visible' : 'hidden'"  (click)="closeDialog($event)">
 	
-	<div class="modal">
+	<div [class]="isVisible ? 'modal animate-top' : 'modal'">
 		
 		<button class="xButton" (click)="closeDialog()">X</button>
 		
