@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { MovieService } from 'src/app/services/movie.service';
+import { Router } from '@angular/router';
+import { NexusService } from 'src/app/services/nexus.service';
 
 @Component({
 	selector: "app-modal",
@@ -11,7 +13,11 @@ export class ModalComponent implements OnInit {
 	movie: any;
 	
 	isVisible: boolean = false;
-	constructor(private movieService: MovieService) {}
+	constructor(
+		private movieService: MovieService,
+		private router: Router,
+		private nexusService: NexusService
+	) {}
 	
 	
 	ngOnInit() {
@@ -53,6 +59,11 @@ export class ModalComponent implements OnInit {
 			};
 		};
 		
+	}
+	
+	pulsaOrder(movieData: any) {
+		this.nexusService.setData("movieData", movieData);
+		this.router.navigate(['/orders/new']);
 	}
 	
 }

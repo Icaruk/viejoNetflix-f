@@ -23,11 +23,11 @@
 				<h3>{{movie.strGenres}}</h3>
 				<p>{{movie.overview}}</p>
 			</div>
-						
+			
 		</div>
 		
 		<div class="footer">
-			<button class="botonVerde">ORDER NOW</button>
+			<button class="botonVerde" (click)="pulsaOrder({{movie}})">ORDER NOW</button>
 		</div>
 		
 	</div>

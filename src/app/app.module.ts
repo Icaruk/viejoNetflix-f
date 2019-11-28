@@ -23,6 +23,8 @@ import { MatCardModule } from "@angular/material/card";
 import { HomeComponent } from './components/home/home.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ModalComponent } from './components/modal/modal.component';
+import { NewOrderComponent } from './components/new-order/new-order.component';
+import { ViewOrderComponent } from './components/view-order/view-order.component';
 
 
 
@@ -36,7 +38,9 @@ import { ModalComponent } from './components/modal/modal.component';
 		HeaderComponent,
 		ProfileComponent,
 		HomeComponent,
-		ModalComponent
+		ModalComponent,
+		NewOrderComponent,
+		ViewOrderComponent
 	],
 	imports: [
 		BrowserModule,

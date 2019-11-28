@@ -91,7 +91,7 @@ export class UserService {
 	// 	return JSON.parse (localStorage.getItem("sessionData"));
 	// };
 	
-	getSessionData(key?: string): string {
+	getSessionData(key?: string): any {
 		// key: username, clientId, token
 		
 		let sessionData = JSON.parse (localStorage.getItem("sessionData"));

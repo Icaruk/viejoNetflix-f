@@ -41,7 +41,7 @@ export class MovieService implements OnInit {
 	getQueryOptions() {
 		
 		let limit = 10;
-		let token = this.userService.getToken();
+		let token = this.userService.getSessionData("token");
 		
 		if (token) {
 			limit = 200;
