@@ -23,6 +23,21 @@ export class MovieService implements OnInit {
 	};
 	
 	
+	
+	fillNullValues(obj: any) {
+		
+		for (let _x of obj) {
+			
+			if (!_x.overview) {
+				_x.overview = "No overview provided.";
+			};
+			
+		};
+		
+	};
+	
+	
+	
 	getQueryOptions() {
 		
 		let limit = 10;

@@ -29,7 +29,11 @@ export class HomeComponent implements OnInit {
 		// Espero respuesta
 		this.movieService.getMoviesByGenre(idGenre).subscribe(
 			res => {
-				this.genreMovies = res["results"]; // guardo los resultados para poder acceder desde el HTML
+				
+				let objMovies = res["results"];
+				this.movieService.fillNullValues(objMovies);
+				
+				this.genreMovies = objMovies; // guardo los resultados para poder acceder desde el HTML
 			},
 			err => {
 				console.log(err);
@@ -69,7 +73,11 @@ export class HomeComponent implements OnInit {
 		// Saco las pelis populares
 		this.movieService.getMostPopularMovies().subscribe(
 			res => {
-				this.mostPopularMovies = res["results"]; // guardo los resultados para poder acceder desde el HTML
+				
+				let objMovies = res["results"];
+				this.movieService.fillNullValues(objMovies);
+				
+				this.mostPopularMovies = objMovies; // guardo los resultados para poder acceder desde el HTML
 			},
 			
 			err => console.log(err)

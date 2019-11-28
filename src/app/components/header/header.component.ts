@@ -36,7 +36,11 @@ export class HeaderComponent implements OnInit {
 			
 			this.movieService.getMovieByTitle(title).subscribe(
 				(res) => {
-					this.movieService.setMoviesFound( res["results"] );
+					
+					let objMovies = res["results"];
+					this.movieService.fillNullValues(objMovies);
+					
+					this.movieService.setMoviesFound( objMovies );
 				},
 				(err) => {
 					console.log( err );
