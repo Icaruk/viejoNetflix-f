@@ -12,6 +12,8 @@ export class ModalComponent implements OnInit {
 	@Input()
 	movie: any;
 	
+	
+	
 	isVisible: boolean = false;
 	constructor(
 		private movieService: MovieService,
@@ -62,8 +64,8 @@ export class ModalComponent implements OnInit {
 	}
 	
 	pulsaOrder(movieData: any) {
-		this.nexusService.setData("movieData", movieData);
-		this.router.navigate(['/orders/new']);
+		// this.nexusService.setData("movieData", movieData);
+		// this.router.navigate(['/orders/new']);
 	}
 	
 }
