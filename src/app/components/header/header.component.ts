@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
 					let objMovies = res["results"];
 					this.movieService.fillNullValues(objMovies);
 					
-					this.movieService.setMoviesFound( objMovies );
+					this.movieService.setMoviesFound(res);
 				},
 				(err) => {
 					console.log( err );

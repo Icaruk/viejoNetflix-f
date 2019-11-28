@@ -82,10 +82,13 @@ export class MovieService implements OnInit {
 			`${this.apiUrl}/movie/search?limit=${options.limit}&genre=${idGenre}&token=${options.token}`
 		);
 	};
-	setMoviesFound(movies: Array<any>) {
+	
+	
+	
+	setMoviesFound(movies: any) {
 		this.moviesFound = movies;
 	};
-	getMoviesFound(): Array<any> {
+	getMoviesFound(): any {
 		return this.moviesFound;
 	};
 	

@@ -1,20 +1,13 @@
 
-
 <h1>Most popular</h1>
 
 <div class="movies">
 	<div class="card" *ngFor="let _x of mostPopularMovies">
 		
-		<img src="https://image.tmdb.org/t/p/w200/{{_x.poster_path}}" alt="poster">
+		<img class="moviePoster" src="https://image.tmdb.org/t/p/w200/{{_x.poster_path}}" alt="poster">
 		
 		<app-modal [movie]="_x"></app-modal>
 		
-		<!-- <div class="description"> -->
-			<!-- <h1>{{_x.title}}</h1> -->
-			<!-- <p class="info">{{_x.genre_ids}} 2019</p> -->
-			<!-- <p>{{_x.overview}}</p> -->
-		<!-- </div> -->
-
 	</div>
 
 </div>
@@ -39,15 +32,9 @@
 <div class="movies">
 	<div class="card" *ngFor="let _x of genreMovies">
 
-		<img src="https://image.tmdb.org/t/p/w200/{{_x.poster_path}}" alt="poster">
+		<img class="moviePoster" src="https://image.tmdb.org/t/p/w200/{{_x.poster_path}}" alt="poster">
 
 		<app-modal [movie]="_x"></app-modal>
-		
-		<!-- <div class="description">
-			<h1>{{_x.title}}</h1>
-			<p class="info">{{_x.genre_ids}} 2019</p>
-			<p>{{_x.overview}}</p>
-		</div> -->
 
 	</div>
 

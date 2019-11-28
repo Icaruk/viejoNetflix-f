@@ -28,6 +28,10 @@ body {
 	margin: 0;
 	background: rgb(65, 65, 65);
 }
+.buttonModal:hover {
+	background: rgb(75, 75, 75);
+	color: rgb(255, 198, 43);
+}
 
 .modal {
 	// position: fixed; /* Stay in place */
@@ -48,26 +52,31 @@ body {
 		width: 100%;
 		height: fit-content;
 		// background: rgb(29, 29, 29);
-		
-		h1 {
-			margin: 0.3em 0.3em;
-			color: rgb(255, 182, 24);
-			text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-		}
 	}
 	
 	.body {
 		
 		display: flex;
 		flex-direction: row;
+
+		h1 {
+			margin: 0.3em 0.3em;
+			color: rgb(255, 182, 24);
+			text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+		}		
 		
 		.image {
 			display: flex;
 			flex-direction: column;
-			
 			justify-content: center;
 			
 			max-width: 400px;
+			margin-top: 1.5em;
+			margin-bottom: 1.5em;
+			
+			img {
+				box-shadow: 0 6px 20px 0 rgba(139, 139, 139, 0.2), 0 6px 20px 0 rgba(139, 139, 139, 0.19);
+			}
 		}
 		
 		.text {
@@ -115,11 +124,6 @@ body {
 		background-color: rgb(255, 53, 53);
 	}
 	
-	img {
-		box-shadow: 0 4px 8px 0 rgba(139, 139, 139, 0.2), 0 6px 20px 0 rgba(139, 139, 139, 0.19);
-		margin: 0;
-		// margin-bottom: 0.75em;
-	}
 	
 	h1, h2, h3, p {
 		text-align: center;
