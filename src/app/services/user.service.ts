@@ -79,7 +79,7 @@ export class UserService {
 		
 		// Llamo
 		return this.httpClient.get(`http://localhost:3000/user/${userId}?token=${token}`);
-	};	
+	};
 	
 	
 	
@@ -87,8 +87,38 @@ export class UserService {
 		return !!this.getSessionData();
 	};
 	
-	getSessionData(): any {
-		return JSON.parse (localStorage.getItem("sessionData"));
+	// getSessionData(): any {
+	// 	return JSON.parse (localStorage.getItem("sessionData"));
+	// };
+	
+	getSessionData(key?: string): string {
+		// key: username, clientId, token
+		
+		let sessionData = JSON.parse (localStorage.getItem("sessionData"));
+		
+		
+		if (!key) { // NO he metido key por param
+			
+			return sessionData; // devuelvo todo, podría ser null
+			
+		} else { // he metido una key específica por param
+			
+			if (this.isLoggedIn()) { // estoy logeado
+				
+				let res = sessionData.token; // pruebo a sacar el value
+				
+				if (res) { // si existe, lo devuelvo
+					return res;
+				} else { // si no existe, devuelvo "" (todos los values son strings)
+					return "";
+				};
+				
+			} else {
+				return ""; // no estoy logeado, pida lo que pida devuelvo ""
+			};
+			
+		};
+		
 	};
 	
 	saveSessionData(sessionData: object): void {
@@ -104,15 +134,12 @@ export class UserService {
 	
 	
 	getToken(): string {
-		
 		if (this.isLoggedIn()) {
 			return this.getSessionData().token;
 		} else {
 			return "";
 		};
-		
 	};
-	
 	
 	
 }
