@@ -2,81 +2,101 @@
 <div class="cenY main">
 	<div class="caja-registro">
 		
-		<form (submit)="register()" #form="ngForm">
+		<form #form="ngForm">
 			<mat-card>
 				
 				<mat-card-header class="cenX">
 					<mat-card-title>Register</mat-card-title>
 				</mat-card-header>
 				
-				<mat-form-field>
-					<input matInput placeholder="Username" required
-					[(ngModel)]="register_body.username"
-					[ngModelOptions]="{standalone: true}"
-				>
-				</mat-form-field>
-
-				<mat-form-field>
-					<input matInput placeholder="Email" required
-					[(ngModel)]="register_body.email"
-					[ngModelOptions]="{standalone: true}">
-				</mat-form-field>
-
-				<mat-form-field>
-					<input matInput placeholder="Password" type="password" required
-					[(ngModel)]="register_body.password"
-					[ngModelOptions]="{standalone: true}">
-				</mat-form-field>
-				<mat-form-field>
-					<input matInput placeholder="Repeat password" type="password" required
-					[(ngModel)]="register_body.password2"
-					[ngModelOptions]="{standalone: true}">
-				</mat-form-field>
-
-				<mat-form-field>
-					<input matInput placeholder="Phone" required
-					[(ngModel)]="register_body.phone"
-					[ngModelOptions]="{standalone: true}">
-				</mat-form-field>
-
-				<mat-form-field>
-					<input matInput placeholder="Address" required
-					[(ngModel)]="register_body.address"
-					[ngModelOptions]="{standalone: true}">
-				</mat-form-field>
+				
+				<div class="row userNameEmail">
+					<mat-form-field>
+						<input matInput placeholder="Username" required
+						[(ngModel)]="register_body.username"
+						[ngModelOptions]="{standalone: true}">
+					</mat-form-field>
+					
+					<mat-form-field>
+						<input matInput placeholder="Email" required
+						type="email"
+						[(ngModel)]="register_body.email"
+						[ngModelOptions]="{standalone: true}">
+					</mat-form-field>
+				</div>
 				
 				
+				
+				<div class="row password">
+					<mat-form-field>
+						<input matInput placeholder="Password" type="password" required
+						[(ngModel)]="register_body.password"
+						[ngModelOptions]="{standalone: true}">
+					</mat-form-field>
+					<mat-form-field>
+						<input matInput placeholder="Repeat password" type="password" required
+						[(ngModel)]="register_body.password2"
+						[ngModelOptions]="{standalone: true}">
+					</mat-form-field>
+				</div>
+				
+				
+				
+				<div class="row phoneAddress">
+					<mat-form-field>
+						<input matInput placeholder="Phone" required
+						[(ngModel)]="register_body.phone"
+						[ngModelOptions]="{standalone: true}">
+					</mat-form-field>
+					
+					<mat-form-field>
+						<input matInput placeholder="Address" required
+						[(ngModel)]="register_body.address"
+						[ngModelOptions]="{standalone: true}">
+					</mat-form-field>
+				</div>
+				
+				
+				
 				<mat-form-field>
-					<input matInput placeholder="Card number"
+					<input matInput placeholder="Card number" required
 					[(ngModel)]="register_body.cardNumber"
 					[ngModelOptions]="{standalone: true}">
 				</mat-form-field>
 				
 				<mat-form-field>
-					<input matInput placeholder="Card owner"
+					<input matInput placeholder="Card owner" required
 					[(ngModel)]="register_body.cardOwner"
 					[ngModelOptions]="{standalone: true}">
 				</mat-form-field>
 				
-				<mat-form-field>
-					<input matInput placeholder="Card expire date"
-					[(ngModel)]="register_body.cardExpireDate"
-					[ngModelOptions]="{standalone: true}">
-				</mat-form-field>
-
-
-
-				<button mat-raised-button color="primary">Register</button>
-
+				
+				
+				<div class="row cardExpireDate">
+					<mat-form-field>
+						<input matInput placeholder="Card expire month number" required
+						[(ngModel)]="register_body.cardExpireMonth"
+						[ngModelOptions]="{standalone: true}">
+					</mat-form-field>
+					
+					<mat-form-field>
+						<input matInput placeholder="Card expire year" required
+						[(ngModel)]="register_body.cardExpireYear"
+						[ngModelOptions]="{standalone: true}">
+					</mat-form-field>
+				</div>
+				
+				
+				<button (click)="register()" class="botonVerde">Register</button>
+				
 			</mat-card>
 		</form>
-
+		
+		<p class="success">{{register_message}}</p>
+		<p class="error">{{register_error}}</p>
+		
 	</div>
 	
-	<p class="success">{{register_message}}</p>
-	<p class="error">{{register_error}}</p>
+	
 	
 </div>
-
-
-{{ register_body | json }}
