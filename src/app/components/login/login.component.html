@@ -1,7 +1,7 @@
 <div class="main">
 	<div class="caja-login">
 		
-		<form (submit)="login()" #form="ngForm">
+		<form #form="ngForm">
 			<mat-card>
 				
 				<mat-card-header class="cenX">
@@ -25,10 +25,10 @@
 						<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
 					</button>
 				</mat-form-field>
-
-
-				<button mat-raised-button color="primary">Login</button>
-
+				
+				
+				<button mat-raised-button color="primary" (click)="login()">Login</button>
+				
 			</mat-card>
 		</form>
 		
