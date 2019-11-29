@@ -1,27 +1,194 @@
-# ViejoNetflixF
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
+#
 
-## Development server
+#### Table of Contents  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [How to run 🚀](#How-to-run-🚀)  
+- [Backend 🔙](#Backend-🔙) 
+	- [User endpoints](#USER)
+	- [Movie endpoints](#MOVIE)
+	- [Order endpoints](#ORDER)
 
-## Code scaffolding
+- [Frontend 👁‍🗨](#Frontend-👁‍🗨)  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+<br>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# ¿Qué es? 🌌
 
-## Running end-to-end tests
+Es una aplicación web que emula el antiguo Netflix hecha en 🕒**80 horas** que usa:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- Frontend: 🧧 Angular 8 
+- Backend: 🔸 NodeJS + Express
+- DB: 🍃 mongoDB 
 
-## Further help
+Durante el desarrollo he usado [este tablón de Trello](https://trello.com/b/XluaxT2E/viejonetflix).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+<br>
+
+# How to run 🚀
+
+- Download [backend repo](https://github.com/Icaruk/viejoNetflix-b).
+- Download [frontend repo](https://github.com/Icaruk/viejoNetflix-f).
+- On the backend run:
+	- `npm run dev`
+- On the frontend run:
+	- `npm start`
+- It should open on http://localhost:4200/
+
+
+<br>
+
+# Backend 🔙
+
+## **Endpoints** 📃
+
+
+
+## USER
+
+- Register
+	- **POST** /user/register
+```json
+{
+	"username":  "Username",
+	"email": "asd@asd.com",
+	"password":  "1234",
+	"phone": "647123456",
+	"address": "c/ Falsa, 123",
+	"billing": {
+		"cardNumber": 123456789,
+		"cardOwner": "Name Name Name",
+		"cardExpireDate": [6, 22]
+	}
+}
+```
+
+- Login
+	- **POST** /user/login
+```json
+{
+	"username":  "Icaruk",
+	"password":  "1234"
+}
+```
+
+- Logout
+	- **GET** user/logout?token={token}
+	
+- Get user data
+	- **GET** user/{userId}?token={token}
+
+- Delete user
+	- **DELETE** user/delete/{{userId}}?token={token}
+
+#
+## MOVIE
+
+- Get popular movies
+	- **GET** movie/popular?limit=10
+	- **GET** movie/popular?limit=500&token={token}
+
+- Get newest movies
+	- **GET** movie/newest?limit=10
+	- **GET** movie/newest?limit=500&token={token}
+
+- Get oldest movies
+	- **GET** movie/oldest?limit=10
+	- **GET** movie/oldest?limit=500&token={token}
+
+- Search by title
+	- **GET** movie/search?limit=10&title=harry
+	- **GET** movie/search?limit=10&title=harry&token={token}
+
+- Search by id
+	- **GET** movie/search?id=337154&token={token}
+
+- Search by genreId
+	- **GET** movie/search?limit=10&genre=12&token={token}
+
+- Get ALL films (be careful, there are 10.000)
+	- **GET** movie/all?limit=10&token={token}
+
+
+#
+## ORDER
+
+- New order
+	- **POST** order/add?token={token}
+```json
+{
+	"movieId": 458899,
+	"userId": "35sdf63j6",
+	"city": "Valencia",
+	"days": 3
+}
+```
+
+- Get order info
+	- **GET** order/5ddfee8d4c96ff459c115dd7?token={token}
+
+- Get all orders from one client
+	- **GET** order/client/{userId}?token={token}
+
+- Change order status (from 0 to 2)
+	- **GET** order/setStatus/{{userId}}?status=1&token={token}
+
+- Delete an order
+	- **DELETE** order/delete/{{userId}}?token={token}
+
+
+
+<br>
+
+# Frontend 👁‍🗨
+
+## Features 📃
+
+- Homepage with most popular movies + random genre movies.
+- Search by title.
+- Users.
+- Orders.
+
+
+## Preview 🔍
+
+- Home
+> ![](https://i.gyazo.com/519f71b33bde9428c3fabd660d43aa1c.jpg)
+
+- Genre dropdown
+> ![](https://i.gyazo.com/06881dae3f950212a6318909bc65783f.png)
+
+- Register
+> ![](https://i.gyazo.com/86c7b8519bd18b50c92f71d1f41cef5b.png)
+
+- Login
+> ![](https://i.gyazo.com/d3ee62fe15b5bdee3a459cf675309432.png)
+
+- Profile
+> ![](https://i.gyazo.com/e8a56ea1f3ba321440d664e06ed93b7f.png)
+
+- Search
+> ![](https://i.gyazo.com/db65979413b9a0837926c0dde9fbde75.jpg)
+> https://i.gyazo.com/d2f07a6195ed7a330b824a178a2cf3bf.mp4
+
+- Detail
+> ![](https://i.gyazo.com/184c987c56213ccde2be076c4dfe8fbd.jpg)
+> https://i.gyazo.com/9b946615597c14a649596f5d9a8916a4.mp4
+
+- New order
+> ![](https://i.gyazo.com/62ccc27171926e9c00e34c8be21ea3d4.png)
+
+- User orders
+> ![](https://i.gyazo.com/82ed673e41059de6358875b8be871d43.png)
+> https://i.gyazo.com/c55e560de90655d3e907a99a141bf915.mp4
+
+
+
+<br>
+
+# [🡅 TOP 🡅](#Table-of-Contents)  
