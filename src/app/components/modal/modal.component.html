@@ -31,5 +31,21 @@
 		
 	</div>
 	
+	
+	
+	<div [class]="isVisible && relatedMovies ? 'related animate-left' : 'hidden'">
+		
+		<div class="header">
+			<p>Related</p>
+		</div>
+		
+		<div class="grid">
+			<abbr *ngFor="let _x of relatedMovies" title="{{_x.title}}">
+				<img src="https://image.tmdb.org/t/p/w200/{{_x.poster_path}}" alt="">
+			</abbr>
+		</div>
+	</div>
+	
 </div>
+
 

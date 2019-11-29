@@ -11,7 +11,7 @@ import { NexusService } from 'src/app/services/nexus.service';
 export class ModalComponent implements OnInit {
 	@Input()
 	movie: any;
-	
+	relatedMovies: any;
 	
 	
 	isVisible: boolean = false;
@@ -23,7 +23,6 @@ export class ModalComponent implements OnInit {
 	
 	
 	ngOnInit() {
-		// console.log( this.movie );
 	}
 	
 	openDialog() {
@@ -38,6 +37,48 @@ export class ModalComponent implements OnInit {
 		for (let _id of movie.genre_ids) {
 			movie.strGenres += `${this.movieService.idToGenre(_id)} `;
 		};
+		
+		
+		this.movieService.getMoviesByGenre(movie.genre_ids[0]).subscribe(
+			(res: any) => {
+				
+				let allMovies = res.results;
+				let maxIdx = res.total_results;
+				this.relatedMovies = [];
+				
+				let idxUsados = [];
+				
+				
+				// 3 veces
+				let v = 1;
+				while (v <= 4) {
+					
+					// Hago random
+					let rnd = Math.ceil ( Math.random() * maxIdx );
+					
+					// No lo he usado
+					if (!idxUsados.includes(rnd)) {
+						
+						let movie = allMovies[rnd];
+						
+						if (movie.poster_path) { // tiene portada
+							this.relatedMovies.push(movie); // meto la peli
+							idxUsados.push(rnd); // meto el rnd como usado
+							v ++; // avanzo
+						};
+
+					};
+					
+				};
+				
+				
+				
+				
+			},
+			(err) => {
+				console.log( err );
+			}
+		)
 		
 		
 		// Muestro
