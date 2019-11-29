@@ -1,4 +1,8 @@
-/* Structure */
+
+body {
+	display: flex;
+}
+
 table {
 	width: 100%;
 }
@@ -6,4 +10,16 @@ table {
 .mat-form-field {
 	font-size: 14px;
 	width: 100%;
+}
+
+input {
+	color: white;
+}
+
+.search {
+	width: 25%;
+}
+
+.cenX {
+	margin-top: 1em;
 }

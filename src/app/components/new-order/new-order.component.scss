@@ -7,6 +7,12 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+.main {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
 .order {
 	display: flex;
 	flex-direction: column;
@@ -33,6 +39,7 @@ body {
 	
 	margin-bottom: 2em;
 	
+	
 	.botonVerde {
 		width: 100%;
 	}
@@ -44,9 +51,13 @@ p {
 	margin-bottom: 1em;
 	
 	input {
-		width: 2em;
+		width: 2.5em;
 		font-size: 1.1em;
+		text-align: center;
+		background-color: rgb(187, 187, 187);
 		color: black;
+		border-radius: 4px;
+		border: none;
 	}
 }
 
