@@ -64,8 +64,8 @@ export class ModalComponent implements OnInit {
 	}
 	
 	pulsaOrder(movieData: any) {
-		// this.nexusService.setData("movieData", movieData);
-		// this.router.navigate(['/orders/new']);
+		this.nexusService.setData("newOrderData", movieData);
+		this.router.navigate(['/orders/new']);
 	}
 	
 }

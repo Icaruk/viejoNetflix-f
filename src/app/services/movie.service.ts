@@ -94,7 +94,7 @@ export class MovieService implements OnInit {
 	
 	
 	
-	getMovieById(id: string) {
+	getMovieById(id: number) {
 		
 		let options = this.getQueryOptions();
 		

@@ -25,7 +25,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { ModalComponent } from './components/modal/modal.component';
 import { NewOrderComponent } from './components/new-order/new-order.component';
 import { ViewOrderComponent } from './components/view-order/view-order.component';
-
+import { OrderListComponent } from './components/order-list/order-list.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ViewOrderComponent } from './components/view-order/view-order.component
 		HomeComponent,
 		ModalComponent,
 		NewOrderComponent,
-		ViewOrderComponent
+		ViewOrderComponent,
+		OrderListComponent
 	],
 	imports: [
 		BrowserModule,
@@ -54,6 +56,8 @@ import { ViewOrderComponent } from './components/view-order/view-order.component
 		MatButtonModule,
 		MatCardModule,
 		MatSelectModule,
+		MatTableModule,
+		
 		FormsModule,
 		ReactiveFormsModule
 	],

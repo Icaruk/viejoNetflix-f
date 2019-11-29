@@ -1,2 +1,30 @@
+<div class="order">
+	
+	<div class="titulo">
+		<h2>{{newOrderData.title}}</h2>
+	</div>
+	
+	<div class="info">
+		<p>
+			Rent for
+			<input
+				matInput
+				[(ngModel)]="nDias"
+				placeholder="Days to rent"
+				value="1"
+				type="number"
+				class="example-right-align"
+			>
+			days
+		</p>
+		<p class="error">{{newOrder_error}}</p>
+		<p class="success">{{newOrder_success}}</p>
+		
+		<p>Price: {{precio * nDias}}€</p>
+	</div>
+	
+	<button class="boton botonVerde" (click)="pulsaConfirmaPedido()">CONFIRM ORDER</button>
+	
+	
+</div>
 
-<h1>NEW ORDER</h1>

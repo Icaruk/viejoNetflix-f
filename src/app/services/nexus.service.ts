@@ -5,23 +5,25 @@ import { Injectable } from "@angular/core";
 })
 export class NexusService {
 	
+	nexusData = {};
+	
 	constructor() {}
 	
 	
 	setData (name: string, data: any): void {
-		localStorage.setItem(name, data);
+		this.nexusData[name] = data;
 	};
 	
-	getData (name: string) {
-		return localStorage.getItem(name);
+	getData (name: string): any {
+		return this.nexusData[name];
 	};
 	
 	getDataAndDelete (name: string) {
 		
-		let res = localStorage.getItem(name);
-		localStorage.removeItem(name);
+		let ret = this.nexusData[name];
+		delete this.nexusData[name];
 		
-		return res;
+		return ret;
 	};
 	
 }

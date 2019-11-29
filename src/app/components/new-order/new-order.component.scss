@@ -1,4 +1,62 @@
-
-h1 {
-	color: red;
+* {
+	color: white;
+	margin: 0;
 }
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.order {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	
+	margin: 0;
+	margin-top: 2em;
+	
+	background: rgb(56, 56, 56);
+	width: 35%;
+	height: fit-content;
+}
+
+.titulo {
+	margin-bottom: 2em;
+	
+	h2 {
+		color: rgb(255, 180, 42);
+	}
+}
+
+
+.info {
+	
+	margin-bottom: 2em;
+	
+	.botonVerde {
+		width: 100%;
+	}
+}
+
+p {
+	color: white;
+	font-size: 1.2em;
+	margin-bottom: 1em;
+	
+	input {
+		width: 2em;
+		font-size: 1.1em;
+		color: black;
+	}
+}
+
+.error {
+	color: red;
+	font-size: 1em;
+}
+
+.success {
+	color: rgb(0, 190, 0);
+	font-size: 1em;
+}
+

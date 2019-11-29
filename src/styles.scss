@@ -14,6 +14,9 @@ body {
 	color: white;
 }
 
+h1, h2, h3, h4, h5 {
+	color: white;
+}
 
 * {
     box-sizing: border-box;
@@ -133,7 +136,15 @@ body {
 }
 
 
+.colAma {color: rgb(234, 250, 8)}
+.colVer {color: rgb(44, 250, 8)}
+.colAzu {color: rgb(0, 23, 228)}
+.colAzuCla {color: rgb(16, 145, 231)}
+.colRoj {color: rgb(255, 38, 38)}
+
+
 .moviePoster {
 	height: 300px;
 	width: 200px;	
 }
+
