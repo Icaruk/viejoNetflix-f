@@ -14,12 +14,20 @@ export class OrderService {
 	userId: string = this.userService.getSessionData("userId");
 	
 	
+	
 	constructor(private httpClient: HttpClient, private userService: UserService) {}
 	
 	
 	addOrder(movieId: number, days: number = 3): Observable<object> {
+		
+		let token = this.userService.getSessionData("token");
+		let userId = this.userService.getSessionData("userId");
+		
+		console.log("Info add order: ", token, userId );
+		
+		
 		return this.httpClient.post(
-			`${this.apiUrl}/order/add?token=${this.token}`,
+			`${this.apiUrl}/order/add?token=${token}`,
 			{
 				"movieId": movieId,
 				"userId": this.userId,
@@ -32,8 +40,12 @@ export class OrderService {
 	
 	
 	getAllOrders(): Observable<object> {
+		
+		let userId = this.userService.getSessionData("userId");
+		let token = this.userService.getSessionData("token");
+		
 		return this.httpClient.get(
-			`${this.apiUrl}/order/client/${this.userId}?token=${this.token}`
+			`${this.apiUrl}/order/client/${userId}?token=${token}`
 		);
 	};
 	

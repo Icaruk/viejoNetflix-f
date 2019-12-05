@@ -105,7 +105,8 @@ export class UserService {
 			
 			if (this.isLoggedIn()) { // estoy logeado
 				
-				let res = sessionData.token; // pruebo a sacar el value
+				let res = sessionData[key]; // pruebo a sacar el value
+				// let res = sessionData.token;
 				
 				if (res) { // si existe, lo devuelvo
 					return res;
