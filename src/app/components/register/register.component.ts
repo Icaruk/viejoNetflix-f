@@ -137,20 +137,20 @@ export class RegisterComponent {
 			this.error("Card expire year can't be empty.");
 			return;
 		};
-		if (this.register_body.cardExpireMonth.length < 2) {
+		if (this.register_body.cardExpireMonth.length !== 2) {
 			this.error("Card expire month must have 2 characters.");
 			return;
 		};
-		if (this.register_body.cardExpireYear.length < 2) {
+		if (this.register_body.cardExpireYear.length !== 2) {
 			this.error("Card expire year must have 2 characters.");
 			return;
 		};
-		if (! /[0-9]{2}/g.test(this.register_body.cardExpireMonth) ) {
-			this.error("Card expire month must be a valid month (2 digits).");
+		if (! /[0-9]/g.test(this.register_body.cardExpireMonth) ) {
+			this.error("Card expire month must be a valid month.");
 			return;
 		};
-		if (! /[0-9]{2}/g.test(this.register_body.cardExpireYear) ) {
-			this.error("Card expire year must be a valid year (2 digits).");
+		if (! /[0-9]/g.test(this.register_body.cardExpireYear) ) {
+			this.error("Card expire year must be a valid year.");
 			return;
 		};
 		
